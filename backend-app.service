@@ -1,0 +1,14 @@
+[Unit]
+Description=Azure Backend Flask Application
+After=network.target
+
+[Service]
+User=azureadmin
+WorkingDirectory=/home/azureadmin/backend-app
+ExecStart=/home/azureadmin/backend-app/venv/bin/python /home/azureadmin/backend-app/app.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
